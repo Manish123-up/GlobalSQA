@@ -20,6 +20,7 @@ public class TestClass {
         WebElement datePicker = driver.findElement(By.cssSelector("#menu-item-2827>a"));
         actions.moveToElement(datePicker).click().build().perform();
         DatePickerPage datePickerPage = new DatePickerPage(driver);
+       // datePickerPage.IconTriggerTest();
         // datePickerPage.clickOnDropDownDatePicker();
 
 

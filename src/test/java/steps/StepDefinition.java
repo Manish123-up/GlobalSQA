@@ -56,4 +56,11 @@ public class StepDefinition {
     public void theyShouldSeeDateAs(String date) {
         Assert.assertEquals(date, datePickerPage.getActualDate());
     }
+
+
+
+    @And("they provide {string} date for IconTrigger")
+    public void theyProvideDateForIconTrigger(String dateValue) {
+        datePickerPage.IconTriggerTest(dateValue);
+    }
 }

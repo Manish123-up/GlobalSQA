@@ -58,4 +58,16 @@ public class DatePickerPage extends BasePage {
         WebElement datePickerTextBox = driver.findElement(By.cssSelector("#datepicker"));
         return datePickerTextBox.getAttribute("value");
     }
+
+    public void IconTriggerTest(String dateValue) {
+        WebElement icontrigger = driver.findElement(By.cssSelector("[id = 'Icon Trigger']"));
+        icontrigger.click();
+        WebElement dropDownFrame = driver.findElement(By.cssSelector("[src*='datepicker/icon-trigger.html']"));
+        driver.switchTo().frame(dropDownFrame);
+        WebElement iconTriggerBox = driver.findElement(By.cssSelector("[class = 'ui-datepicker-trigger']"));
+        iconTriggerBox.click();
+        WebElement nextbutton = driver.findElement(By.cssSelector("[class = 'ui-icon ui-icon-circle-triangle-e']"));
+        nextbutton.click();
+        getDateValue(dateValue);
+    }
 }
