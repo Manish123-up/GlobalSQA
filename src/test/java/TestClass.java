@@ -1,19 +1,17 @@
-import pages.DatePickerPage;
-import steps.Hook;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
-import java.util.List;
+import pages.DatePickerPage;
+import steps.Hook;
 
 public class TestClass {
 
     private static WebDriver driver;
+
     public static void main(String[] args) {
 
-       driver= Hook.getDriver();
+        driver = Hook.getDriver();
         WebElement element = driver.findElement(By.cssSelector("#menu-item-2822>a"));
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
@@ -22,7 +20,7 @@ public class TestClass {
         WebElement datePicker = driver.findElement(By.cssSelector("#menu-item-2827>a"));
         actions.moveToElement(datePicker).click().build().perform();
         DatePickerPage datePickerPage = new DatePickerPage(driver);
-       // datePickerPage.clickOnDropDownDatePicker();
+        // datePickerPage.clickOnDropDownDatePicker();
 
 
        /* WebElement pageHeading = driver.findElement(By.cssSelector(".page_heading"));
