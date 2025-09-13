@@ -33,13 +33,13 @@ public class DatePickerPage extends BasePage {
         driver.switchTo().frame(simpleDateFrame);
         WebElement datePickerTextBox = driver.findElement(By.cssSelector("#datepicker"));
         datePickerTextBox.click();
-        WebElement nextButton = driver.findElement(By.cssSelector("[class ='ui-icon ui-icon-circle-triangle-e']"));
+        WebElement nextButton = driver.findElement(By.cssSelector(".ui-icon.ui-icon-circle-triangle-e"));
         nextButton.click();
         getDateValue(dateValue);
     }
 
     public void clickOnDropDownDatePicker(String dateValue, String month, String year) {
-        WebElement dropDownDatePickerTab = driver.findElement(By.cssSelector("[id='DropDown DatePicker']"));
+        WebElement dropDownDatePickerTab = driver.findElement(By.id("DropDown DatePicker"));
         dropDownDatePickerTab.click();
         WebElement dropDownFrame = driver.findElement(By.cssSelector("[src*='datepicker/dropdown']"));
         driver.switchTo().frame(dropDownFrame);
@@ -60,14 +60,14 @@ public class DatePickerPage extends BasePage {
     }
 
     public void IconTriggerTest(String dateValue) {
-        WebElement icontrigger = driver.findElement(By.cssSelector("[id = 'Icon Trigger']"));
+        WebElement icontrigger = driver.findElement(By.id("Icon Trigger"));
         icontrigger.click();
         WebElement dropDownFrame = driver.findElement(By.cssSelector("[src*='datepicker/icon-trigger.html']"));
         driver.switchTo().frame(dropDownFrame);
-        WebElement iconTriggerBox = driver.findElement(By.cssSelector("[class = 'ui-datepicker-trigger']"));
+        WebElement iconTriggerBox = driver.findElement(By.cssSelector(".ui-datepicker-trigger"));
         iconTriggerBox.click();
-        WebElement nextbutton = driver.findElement(By.cssSelector("[class = 'ui-icon ui-icon-circle-triangle-e']"));
-        nextbutton.click();
+        WebElement nextButton = driver.findElement(By.cssSelector(".ui-icon.ui-icon-circle-triangle-e"));
+        nextButton.click();
         getDateValue(dateValue);
     }
 }
