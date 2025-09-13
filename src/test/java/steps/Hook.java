@@ -1,8 +1,8 @@
 package steps;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -10,7 +10,7 @@ public class Hook {
     private static WebDriver driver;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -22,7 +22,7 @@ public class Hook {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         if (driver != null) {
             driver.quit();  // closes all browser windows
             driver = null;

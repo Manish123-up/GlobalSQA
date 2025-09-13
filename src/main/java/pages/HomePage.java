@@ -5,13 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
-    public HomePage(WebDriver driver){
+
+    public HomePage(WebDriver driver) {
         super(driver);
     }
 
-    public void clickOnDatePicker(){
+    public void clickOnDatePicker() {
         WebElement element = driver.findElement(By.cssSelector("#menu-item-2822>a"));
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
