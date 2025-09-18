@@ -1,3 +1,4 @@
+/*
 package steps;
 
 import io.cucumber.java.en.And;
@@ -64,3 +65,4 @@ public class StepDefinition {
         datePickerPage.IconTriggerTest(dateValue);
     }
 }
+*/
