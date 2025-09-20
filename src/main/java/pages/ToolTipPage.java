@@ -29,9 +29,14 @@ public class ToolTipPage extends BasePage {
         return city.get(0).getAttribute("alt");
     }
 
-    public void clickOnAToolTipTab() {
-        WebElement element = driver.findElement(By.cssSelector("[id*='Forms Based']"));
+    public void clickOnAToolTipTab(String tabName) {
+        WebElement element = driver.findElement(By.cssSelector("[id*='" + tabName + "']"));
         element.click();
+        try {
+            Thread.sleep(3000);
+        } catch (Exception e) {
+
+        }
     }
 
     public String getToolTipTextForFormBasedTab() {
@@ -43,13 +48,54 @@ public class ToolTipPage extends BasePage {
         WebElement firstNameToolTip = driver.findElement(By.cssSelector(".ui-tooltip-content"));
         return firstNameToolTip.getText();
     }
-    public String getToolTipTextFormBasedTab2(){
+
+    public String getToolTipTextFormBasedTab2() {
         WebElement toolTipFrame2 = driver.findElement(By.cssSelector("[src*='tooltip/forms.html']"));
         driver.switchTo().frame(toolTipFrame2);
         Actions actions = new Actions(driver);
-        WebElement firstName = driver.findElement(By.cssSelector("[id='lastname']"));
-        actions.moveToElement(firstName).perform();
+        WebElement lastName = driver.findElement(By.cssSelector("[id='lastname']"));
+        actions.moveToElement(lastName).perform();
         WebElement firstNameToolTip = driver.findElement(By.cssSelector(".ui-tooltip-content"));
         return firstNameToolTip.getText();
+    }
+
+    public String getToolTipTextFormBasedTab3() {
+        WebElement toolTipFrame3 = driver.findElement(By.cssSelector("[src*='tooltip/forms.html']"));
+        driver.switchTo().frame(toolTipFrame3);
+        Actions actions = new Actions(driver);
+        WebElement addressName = driver.findElement(By.cssSelector("[id='address']"));
+        actions.moveToElement(addressName).perform();
+        WebElement addressNameToolTip = driver.findElement(By.cssSelector(".ui-tooltip-content"));
+        return addressNameToolTip.getText();
+    }
+
+    public String getToolTipTextForVideoBased() {
+        WebElement toolTipFrame = driver.findElement(By.cssSelector("[src*='tooltip/video-player.html']"));
+        driver.switchTo().frame(toolTipFrame);
+        Actions actions = new Actions(driver);
+        WebElement likeIt = driver.findElement(By.cssSelector("[title='I like this']"));
+        actions.moveToElement(likeIt).perform();
+        WebElement list = driver.findElement(By.cssSelector("[class='ui-tooltip-content']"));
+        return list.getText();
+    }
+
+    public String getToolTipTextForVideoBased2() {
+        WebElement toolTipFrame = driver.findElement(By.cssSelector("[src*='tooltip/video-player.html']"));
+        driver.switchTo().frame(toolTipFrame);
+        Actions actions = new Actions(driver);
+        WebElement likeIt = driver.findElement(By.cssSelector("[title='Add to Watch Later']"));
+        actions.moveToElement(likeIt).perform();
+        WebElement list = driver.findElement(By.cssSelector("[class='ui-tooltip-content']"));
+        return list.getText();
+    }
+
+    public String getToolTipTextForVideoBased3() {
+        WebElement toolTipFrame = driver.findElement(By.cssSelector("[src*='tooltip/video-player.html']"));
+        driver.switchTo().frame(toolTipFrame);
+        Actions actions = new Actions(driver);
+        WebElement likeIt = driver.findElement(By.cssSelector("[title='Share this video']"));
+        actions.moveToElement(likeIt).perform();
+        WebElement list = driver.findElement(By.cssSelector("[class='ui-tooltip-content']"));
+        return list.getText();
     }
 }

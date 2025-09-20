@@ -61,9 +61,9 @@ public class StepDefinition {
         }
     }
 
-    @And("they click on Form Based tab")
-    public void getToolTipTextForFormBasedTab() {
-        toolTipPage.clickOnAToolTipTab();
+    @And("they click on {string} tab")
+    public void theyClickOnTab(String tab) {
+        toolTipPage.clickOnAToolTipTab(tab);
     }
 
     @Then("they can see the provided {string} date value in the {string} date")
@@ -81,8 +81,17 @@ public class StepDefinition {
         switch (text) {
             case "Vienna, Austria" -> Assert.assertEquals(text, toolTipPage.getToolTipTextForImageBasedTab());
             case "Tooltip" -> Assert.assertEquals(text, toolTipPage.heading());
-            case "firstname" -> Assert.assertEquals(text, toolTipPage.getToolTipTextForFormBasedTab());
-            case "lastname" -> Assert.assertEquals(text, toolTipPage.getToolTipTextFormBasedTab2());
+            case "Please provide your firstname." -> Assert.assertEquals(text, toolTipPage.getToolTipTextForFormBasedTab());
+            case "Please provide your lastname." -> Assert.assertEquals(text, toolTipPage.getToolTipTextFormBasedTab2());
+            case "Your home or work address." -> Assert.assertEquals(text, toolTipPage.getToolTipTextFormBasedTab3());
+            case "I like this" -> Assert.assertEquals(text, toolTipPage.getToolTipTextForVideoBased());
+            case "Add to Watch Later" -> Assert.assertEquals(text, toolTipPage.getToolTipTextForVideoBased2());
+            case "Share this video" -> Assert.assertEquals(text, toolTipPage.getToolTipTextForVideoBased3());
         }
     }
+
+  /*  @And("they click on Video Based tab")
+    public void theyClickOnVideoBasedTab() {
+        toolTipPage.clickOnAToolTipTab();
+    }*/
 }
