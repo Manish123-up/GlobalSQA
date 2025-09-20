@@ -43,4 +43,13 @@ public class ToolTipPage extends BasePage {
         WebElement firstNameToolTip = driver.findElement(By.cssSelector(".ui-tooltip-content"));
         return firstNameToolTip.getText();
     }
+    public String getToolTipTextFormBasedTab2(){
+        WebElement toolTipFrame2 = driver.findElement(By.cssSelector("[src*='tooltip/forms.html']"));
+        driver.switchTo().frame(toolTipFrame2);
+        Actions actions = new Actions(driver);
+        WebElement firstName = driver.findElement(By.cssSelector("[id='lastname']"));
+        actions.moveToElement(firstName).perform();
+        WebElement firstNameToolTip = driver.findElement(By.cssSelector(".ui-tooltip-content"));
+        return firstNameToolTip.getText();
+    }
 }
