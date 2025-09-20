@@ -14,11 +14,6 @@ public class DatePickerPage extends BasePage {
         super(driver);
     }
 
-    public String getHeading() {
-        WebElement pageHeading = driver.findElement(By.cssSelector(".page_heading"));
-        return pageHeading.getText();
-    }
-
     public void getDateValue(String dateValue) {
         List<WebElement> datesElements = driver.findElements(By.cssSelector("[data-handler ='selectDay']"));
         for (WebElement date : datesElements) {

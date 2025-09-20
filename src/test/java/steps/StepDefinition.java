@@ -1,4 +1,3 @@
-/*
 package steps;
 
 import io.cucumber.java.en.And;
@@ -43,11 +42,6 @@ public class StepDefinition {
         datePickerPage.clickOnDropDownDatePicker(date, month, year);
     }
 
-    @Then("they can see the {string}")
-    public void they_can_see_the(String text) {
-        Assert.assertEquals(text, datePickerPage.getHeading());
-    }
-
     @Then("they can see the provided {string} date value in the {string} date")
     public void they_can_see_the_provided_date_value_in_the_date(String dateValue, String date) {
         Assert.assertEquals(date, datePickerPage.getActualDate());
@@ -59,10 +53,8 @@ public class StepDefinition {
     }
 
 
-
     @And("they provide {string} date for IconTrigger")
     public void theyProvideDateForIconTrigger(String dateValue) {
         datePickerPage.IconTriggerTest(dateValue);
     }
 }
-*/

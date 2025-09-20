@@ -1,5 +1,6 @@
 package steps;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,33 +14,11 @@ public class ToolStepDefinition {
     private HomePage homePage;
     private ToolTipPage toolTipPage;
 
-    //    @Given("user is on {string}")
-//    public void user_is_on(String page) {
-//        switch (page.toLowerCase()) {
-//            case HOME_PAGE -> {
-//                driver = Hook.getDriver();
-//                toolTipPage = new ToolTipPage(driver);
-//            }
-//        }
-//    }
-//    @When("they reach to the ToolTip page")
-//    public void they_reach_to_the_tool_tip_page() {
-//
-//    }
-//
-//    @Then("they can see the {string}")
-//    public void theyCanSeeThe(String text) {
-//        System.out.println(toolTipPage.heading());
-//    }
-//   /* @Then("they can see the ToolTip")
-//    public void they_reach_to(){
-//
-//    }*/
     @Given("user is on home-page")
     public void userIsOnHomePage() {
         driver = Hook.getDriver();
         homePage = new HomePage(driver);
-
+        toolTipPage = new ToolTipPage(driver);
         Assert.assertEquals("Automate, Analyze, Achieve", homePage.getTextFromHomePage());
 
     }
@@ -50,14 +29,17 @@ public class ToolStepDefinition {
 
     }
 
-    @Then("they can see the {string}")
-    public void they_can_see_the(String text) {
-        toolTipPage = new ToolTipPage(driver);
-        switch (text) {
-            case "Vienna, Austria" -> Assert.assertEquals(text, toolTipPage.getToolTipText());
-            case "Tooltip" -> Assert.assertEquals(text, toolTipPage.heading());
-        }
-
+    @And("they click on Form Based tab")
+    public void theyClickOnFormBasedTab() {
+        toolTipPage.clickOnAToolTipTab();
     }
 
+    @Then("they can see the {string}")
+    public void they_can_see_the(String text) {
+        switch (text) {
+            case "Vienna, Austria" -> Assert.assertEquals(text, toolTipPage.getToolTipTextForImageBasedTab());
+            case "Tooltip" -> Assert.assertEquals(text, toolTipPage.heading());
+            case "firstname" -> Assert.assertEquals(text, toolTipPage.getToolTipTextForFormBasedTab());
+        }
+    }
 }
